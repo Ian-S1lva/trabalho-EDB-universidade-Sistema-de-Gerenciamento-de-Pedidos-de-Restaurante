@@ -3,22 +3,19 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(){
 
-    int sair = 0;
+int main(){
+    
     int TELA = 0;
     char c;
 
-    while (sair == 0){
+    while (TELA != -1){
 
     exibe(TELA);
-    printf("\nselecione:");
-    scanf("%d",&TELA);    
-    //scanf("%c", c);
-    //seleciona_opcao(TELA,c);
-    if(TELA == 4)
-        sair = 1;
-    
+    printf("\nselecione:");   
+    scanf("%c", &c);
+    seleciona_opcao(&TELA,c);
+       
     }
 
     return 0;

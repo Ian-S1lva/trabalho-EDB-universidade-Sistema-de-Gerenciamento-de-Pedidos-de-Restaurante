@@ -3,6 +3,13 @@
 
 #define BORDAS "-------------------------"
 
+void adicionar_prato(){} //funcoes e assinaturas de funcoes temporariamente aqui
+void remover_prato(){} //dps transferir para lista_de_pedidos.c, lista_de_pedidos.h,
+void exibir_pedido(){} // pedido.c ou pedido.h
+void finalizar_pedido(){}
+void exibir_lista_pedidos(){}
+void processar_pedidos(){}
+
 void exibe(int tela){
     //tela 0 = menu principal
     //tela 1 = novo pedido
@@ -58,8 +65,67 @@ void exibe(int tela){
                 printf("3. Mousse de Chocolate\n");
                 printf("4. Pudim de Leite\n");
                 printf("5. Sorvete de Baunilha com Calda de Morango\n");
-
+                printf("\n");
+                printf("V = Voltar");
+            break;
 
     }
 
-};
+}
+
+seleciona_opcao(int* TELA,char c){
+    //tela -1 = sair
+    //tela 0 = menu principal
+    //tela 1 = novo pedido
+    //tela 2 = cozinha
+    //tela 3 = cardapio
+    switch (*TELA){
+        case 0:
+            if(c == '1'){
+                *TELA = 1;
+            }
+            else if(c == '2'){
+                *TELA = 2;
+            }
+            else if(c == '3'){
+                printf("saindo do programa...");
+                *TELA = -1;
+            }
+            break;
+        case 1:
+            if(c == '1'){
+                adicionar_prato();
+            }
+            else if(c == '2'){
+                remover_prato();
+            }
+            else if(c == '3'){
+                exibir_pedido();
+            }
+            else if(c == '4'){
+                *TELA = 3;
+            }
+            else if(c == '5'){
+                finalizar_pedido();
+                *TELA = 0;
+            }           
+            break;
+        case 2:
+            if(c == '1'){
+                exibir_lista_pedidos();
+            }
+            else if(c == '2'){
+                processar_pedidos();
+            }
+            else if(c == '3'){
+                *TELA = 0;
+            }
+            break;
+        case 3:
+            if(c == 'V'){
+                *TELA = 1;
+            }
+            break;
+    }
+
+}
