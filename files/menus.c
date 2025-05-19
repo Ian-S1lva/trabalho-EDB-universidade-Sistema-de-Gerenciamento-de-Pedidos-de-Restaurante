@@ -1,0 +1,65 @@
+//implementação de telas 
+#include <stdio.h>
+
+#define BORDAS "-------------------------"
+
+void exibe(int tela){
+    //tela 0 = menu principal
+    //tela 1 = novo pedido
+    //tela 2 = cozinha
+    //tela 3 = cardapio
+    switch (tela){
+        case 0:
+            printf("%s  SALÃO  %s", BORDAS, BORDAS);
+            printf("\n");
+            printf("1. novo pedido\n");
+            printf("2. ir para cozinha\n");
+            printf("3. sair\n");
+            break;
+        case 1:
+            printf("%s  SALÃO  %s", BORDAS, BORDAS);
+            printf("\n");
+            printf("1. adicionar prato\n");
+            printf("2. remover prato\n");
+            printf("3. exibir pedido\n");
+            printf("4. cardápio\n");
+            printf("5. finalizar pedido e enviar para processamento\n");
+            break;
+        case 2:
+            printf("%s COZINHA %s", BORDAS, BORDAS);
+            printf("\n");
+            printf("1. exibir lista de pedidos em processamento\n");
+            printf("2. processar pedidos\n");
+            printf("3. voltar ao salão\n");
+            break;
+        case 3:
+                printf("%s CARDÁPIO %s", BORDAS, BORDAS);                
+                printf("\n");
+                printf("### Entradas\n");
+                printf("\n");
+                printf("1. Sopa de Cebola\n");
+                printf("2. Salada Caesar\n");
+                printf("3. Bruschetta\n");
+                printf("4. Carpaccio de Carne\n");
+                printf("5. Camarão ao Alho\n");
+                printf("\n");
+                printf("### Pratos Principais\n");
+                printf("\n");
+                printf("1. Lasanha à Bolonhesa\n");
+                printf("2. Filé Mignon com Fritas\n");
+                printf("3. Frango Grelhado com Legumes\n");
+                printf("4. Bacalhau à Gomes de Sá\n");
+                printf("5. Risoto de Cogumelos\n");
+                printf("\n");
+                printf("### Sobremesas\n");
+                printf("\n");
+                printf("1. Tiramisu\n");
+                printf("2. Cheesecake de Frutas Vermelhas\n");
+                printf("3. Mousse de Chocolate\n");
+                printf("4. Pudim de Leite\n");
+                printf("5. Sorvete de Baunilha com Calda de Morango\n");
+
+
+    }
+
+};
