@@ -3,12 +3,6 @@
 
 #define BORDAS "-------------------------"
 
-void adicionar_prato(){} //funcoes e assinaturas de funcoes temporariamente aqui
-void remover_prato(){} //dps transferir para lista_de_pedidos.c, lista_de_pedidos.h,
-void exibir_pedido(){} // pedido.c ou pedido.h
-void finalizar_pedido(){}
-void exibir_lista_pedidos(){}
-void processar_pedidos(){}
 
 void exibe(int tela){
     //tela 0 = menu principal
