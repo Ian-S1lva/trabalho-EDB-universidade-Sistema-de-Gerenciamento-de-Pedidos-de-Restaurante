@@ -1,5 +1,7 @@
 //implementação de telas 
 #include <stdio.h>
+#include "pedido.h"
+#include "lista_de_pedidos.h"
 
 #define BORDAS "-------------------------"
 
@@ -67,7 +69,7 @@ void exibe(int tela){
 
 }
 
-seleciona_opcao(int* TELA,char c){
+void seleciona_opcao(int* TELA,char c){
     //tela -1 = sair
     //tela 0 = menu principal
     //tela 1 = novo pedido
