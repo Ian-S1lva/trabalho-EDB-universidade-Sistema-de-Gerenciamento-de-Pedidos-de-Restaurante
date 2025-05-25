@@ -7,14 +7,14 @@
 int main(){
     
     int TELA = 0;
-    char c;
+    char c[2]; //troquei c por c[] para usar %s e remover espacos
 
     while (TELA != -1){
 
     exibe(TELA);
     printf("\nselecione:");   
-    scanf("%c", &c);
-    seleciona_opcao(&TELA,c);
+    scanf("%s", c);
+    seleciona_opcao(&TELA,c[0]); //importa só o 1º char
        
     }
 
