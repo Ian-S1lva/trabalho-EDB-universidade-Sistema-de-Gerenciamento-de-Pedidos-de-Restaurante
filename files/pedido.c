@@ -121,7 +121,7 @@ void exibir_pedido(){
         return;
     }
 
-    printf("Pedido:\n");
+    printf("Pedido pendente:\n");
     No2* atual = pedido_salao.frente;
     while (atual != NULL) {
         printf(" - %s\n", atual->prato);
@@ -130,8 +130,8 @@ void exibir_pedido(){
     }
 } 
 
-void finalizar_pedido(){
+void finalizar_pedido(){ //uso de funcoes da lista_de_pedidos
     //em construcao
-    //transferir para lista da cozinha
+    enfileirar(fila_cozinha,pedido_salao);
     
 } 
