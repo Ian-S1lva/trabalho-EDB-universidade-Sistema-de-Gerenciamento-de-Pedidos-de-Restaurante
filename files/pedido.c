@@ -4,15 +4,19 @@
 #include "pedido.h"
 
 //uma lista contera todos os pratos possiveis o que cada variavel *prato aponta, é para os nomes dessa lista
-const char CARDAPIO[15][50] = {"Sopa de Cebola","Salada Caesar","Bruschetta","Carpaccio de Carne","Camarão ao Alho","Lasanha à Bolonhesa","Filé Mignon com Fritas","Frango Grelhado com Legumes","Bacalhau à Gomes de Sá","Risoto de Cogumelos","Tiramisu","Cheesecake de Frutas Vermelhas","Mousse de Chocolate","Pudim de Leite","Sorvete de Baunilha com Calda de Morango"}
+char* CARDAPIO[] = {
+    "Sopa de Cebola", "Salada Caesar", "Bruschetta", "Carpaccio de Carne", "Camarão ao Alho",
+    "Lasanha à Bolonhesa", "Filé Mignon com Fritas", "Frango Grelhado com Legumes", "Bacalhau à Gomes de Sá", "Risoto de Cogumelos",
+    "Tiramisu", "Cheesecake de Frutas Vermelhas", "Mousse de Chocolate", "Pudim de Leite", "Sorvete de Baunilha com Calda de Morango"
+}; //aqui usando arrays dá pra usar ponteiros direto lá em inserir sem precisar de cópia manual (tipo cardapio[i])
 Pedido pedido_salao;
-pedido_salao.id = 0; //funciona? ***
+int proximo_id = 1; //do jeito antigo n funciona, acho pq me lembro de ter visto algo sobre n poder atribuir valor fora de função se n for constante ***
 
 void inicializar_pedido(Pedido* p) {
     p->frente = NULL;
     p->tras = NULL;
     p->qtd_pratos = 0;
-    p->id = p->id++; //funciona?***
+p->id = proximo_id++; 
 }
 
 //verifica se esta vazio
