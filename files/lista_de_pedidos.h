@@ -1,13 +1,16 @@
 #ifndef LISTA_DE_PEDIDOS_H
 #define LISTA_DE_PEDIDOS_H
 
-#define MAX_PRATOS 10
 #define TAM_NOME 100
+
+typedef struct Prato {
+    char nome[TAM_NOME];
+    struct Prato* prox;
+} Prato;
 
 typedef struct {
     int id;
-    char pratos[MAX_PRATOS][TAM_NOME];
-    int qtd_pratos;
+    Prato* lista_pratos;
 } Pedido;
 
 typedef struct No {
@@ -26,5 +29,7 @@ void enfileirar(Fila* f, Pedido p);
 Pedido desenfileirar(Fila* f);
 void exibir_lista_pedidos();
 void processar_pedidos();
+void adicionar_prato(Pedido* p, const char* nome_prato);
+void liberar_pedido(Pedido* p);
 
 #endif
