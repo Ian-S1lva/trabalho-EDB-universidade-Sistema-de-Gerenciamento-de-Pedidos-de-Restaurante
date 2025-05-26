@@ -2,21 +2,6 @@
 #ifndef PEDIDOS_H
 #define PEDIDOS_H
 
-/*
-
-struct
-
-prato
-
-no -> id prato e prox
-
-fila ligada -> inicio e fim da fila
-
-[yep] [slide 14b, fala de remocoes no meio;fazer insercoes sempre no fim, como uma comanda]
-[remocao da fila, fazer 'rmv lasanha' 1 por vez ou 'rmv lasanha qtd' <-- depende de como implementar a insercao]
-
-*/
-
 #define TAM_NOME 100
 
 typedef struct {

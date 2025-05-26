@@ -4,14 +4,15 @@
 #include "pedido.h"
 
 //uma lista contera todos os pratos possiveis o que cada variavel *prato aponta, é para os nomes dessa lista
-
+const char CARDAPIO[15][50] = {"Sopa de Cebola","Salada Caesar","Bruschetta","Carpaccio de Carne","Camarão ao Alho","Lasanha à Bolonhesa","Filé Mignon com Fritas","Frango Grelhado com Legumes","Bacalhau à Gomes de Sá","Risoto de Cogumelos","Tiramisu","Cheesecake de Frutas Vermelhas","Mousse de Chocolate","Pudim de Leite","Sorvete de Baunilha com Calda de Morango"}
 Pedido pedido_salao;
+pedido_salao.id = 0; //funciona? ***
 
 void inicializar_pedido(Pedido* p) {
     p->frente = NULL;
     p->tras = NULL;
     p->qtd_pratos = 0;
-    //adicionar id com base na qtd de pedidos na cozinha
+    p->id = p->id++; //funciona?***
 }
 
 //verifica se esta vazio
@@ -86,20 +87,32 @@ void remover(Pedido* p, char* prato) {
 
 
 void adicionar_prato(){
-    //em construcao
+   
+    char nome_prato[50];
+    printf("\nnome do prato: ");
+    scanf("%s",nome_prato);
 
-    //ler nome
-    //buscar em lista de pratos
-    //se o nome existir
-    //passar o ponteiro q aponta para lista de pratos em inserir()
+    int i;
+    for(i=0;i<15;i++){
+        if(strcmp(nome_prato,CARDAPIO[i] == 0)){
+            inserir(pedido_salao,CARDAPIO[i]);
+            return;
+        }
+    }
+    
+    printf("\nprato %s não encontrado, tente novamente.\n", nome_prato);
 } 
 
 void remover_prato(){
-    //em construcao
 
-    //ler nome
-    //passar o nome para remover();
-    //caso remover() retorne -1 informar que nao foi possivel remover o prato
+    char nome_prato[50];
+    printf("\nnome do prato: ");
+    scanf("%s",nome_prato);
+    if(remover(pedido_salao,nome_prato) == -1){
+        printf("\nnão foi possível remover o prato\n");
+        return;
+    }
+    printf("\n 01 %s removido", nome_prato);
 }
 
 void exibir_pedido(){
@@ -120,5 +133,5 @@ void exibir_pedido(){
 void finalizar_pedido(){
     //em construcao
     //transferir para lista da cozinha
-    //id++
+    
 } 
