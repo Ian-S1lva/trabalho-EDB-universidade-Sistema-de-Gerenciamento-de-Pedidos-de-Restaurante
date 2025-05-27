@@ -19,7 +19,6 @@ void enfileirar(Fila* f, Pedido p);
 Pedido desenfileirar(Fila* f);
 void exibir_lista_pedidos();
 void processar_pedidos();
-//void adicionar_prato(Pedido* p, const char* nome_prato);
 void liberar_pedido(Pedido* p); 
 
 #endif

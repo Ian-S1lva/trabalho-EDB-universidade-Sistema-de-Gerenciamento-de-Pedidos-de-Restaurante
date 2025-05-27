@@ -84,7 +84,7 @@ void seleciona_opcao(int* TELA,char c){
                 *TELA = 2;
             }
             else if(c == '3'){
-                printf("saindo do programa...");
+                printf("saindo do programa...\n");
                 *TELA = -1;
             }
             break;

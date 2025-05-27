@@ -21,22 +21,6 @@ int fila_vazia(Fila* f) {
     return f->frente == NULL;
 }
 
-// add um prato ao pedido
-/*void adicionar_prato(Pedido* p, const char* nome_prato) {
-    No2* novo_prato = (No2*)malloc(sizeof(Prato));
-    strncpy(novo_prato->nome, nome_prato, TAM_NOME); 
-    novo_prato->prox = NULL;
-
-    if (!p->frente) {
-        p->frente = novo_prato;
-    } else {
-        No2* atual = p->frente;
-        while (atual->prox != NULL) {
-            atual = atual->prox;
-        }
-        atual->prox = novo_prato;
-    }
-}*/
 
 // libera da memória todos os pratos de um pedido (pra evitar vazmento de memória)
 void liberar_pedido(Pedido* p) {
