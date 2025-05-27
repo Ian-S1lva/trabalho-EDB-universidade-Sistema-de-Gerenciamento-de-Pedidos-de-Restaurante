@@ -1,5 +1,6 @@
 //implementacao do codigo do salao
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "pedido.h"
 
@@ -16,7 +17,7 @@ void inicializar_pedido(Pedido* p) {
     p->frente = NULL;
     p->tras = NULL;
     p->qtd_pratos = 0;
-p->id = proximo_id++; 
+    p->id = proximo_id++; 
 }
 
 //verifica se esta vazio
@@ -43,9 +44,11 @@ void inserir(Pedido* p, char* prato) {
 
 //busca a ocorrencia de um prato no pedido e retorna sua posicao
 int busca(Pedido* p, char* prato){
-    if (fila_vazia(&pedido_salao)) return -1; //se a fila estiver vazia volte
+    if (pedido_vazio(&pedido_salao)) return -1; //se a fila estiver vazia volte
     
     int i = 0;
+    No2* atual = pedido_salao.frente;
+
     while (atual != NULL) { //
         if(atual->prato == prato){//essa construcao compila?
             return i;
@@ -98,8 +101,8 @@ void adicionar_prato(){
 
     int i;
     for(i=0;i<15;i++){
-        if(strcmp(nome_prato,CARDAPIO[i] == 0)){
-            inserir(pedido_salao,CARDAPIO[i]);
+        if(strcmp(nome_prato,CARDAPIO[i]) == 0){
+            inserir(&pedido_salao,CARDAPIO[i]);
             return;
         }
     }
@@ -112,7 +115,7 @@ void remover_prato(){
     char nome_prato[50];
     printf("\nnome do prato: ");
     scanf("%s",nome_prato);
-    if(remover(pedido_salao,nome_prato) == -1){
+    if(remover(&pedido_salao,nome_prato) == -1){
         printf("\nnão foi possível remover o prato\n");
         return;
     }
@@ -136,6 +139,10 @@ void exibir_pedido(){
 
 void finalizar_pedido(){ //uso de funcoes da lista_de_pedidos
     //em construcao
-    enfileirar(fila_cozinha,pedido_salao);
+    enfileirar(&fila_cozinha,pedido_salao);
     
 } 
+
+int main(){
+    return 0;
+}

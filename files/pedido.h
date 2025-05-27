@@ -1,8 +1,13 @@
-//implementacao do codigo do salao
-#ifndef PEDIDOS_H
-#define PEDIDOS_H
+#ifndef PEDIDO_H
+#define PEDIDO_H
 
 #define TAM_NOME 100
+
+
+typedef struct {
+    char *prato;
+    struct No2* prox;
+} No2;
 
 typedef struct {
     int id;
@@ -11,12 +16,6 @@ typedef struct {
     No2* frente;
     No2* tras;
 } Pedido; //Fila ligada
-
-typedef struct No2 {
-    char *prato;
-    struct No2* prox;
-} No2;
-
 
 
 void inicializar_pedido(Pedido* p);
