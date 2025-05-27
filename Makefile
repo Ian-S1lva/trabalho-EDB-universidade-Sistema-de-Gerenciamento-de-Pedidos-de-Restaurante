@@ -1,0 +1,2 @@
+build: files/lista_de_pedidos.c files/lista_de_pedidos.h files/main.c files/menu.h files/menus.c files/pedido.c files/pedido.h
+	gcc -o main files/main.c files/menus.c files/pedido.c files/lista_de_pedidos.c
