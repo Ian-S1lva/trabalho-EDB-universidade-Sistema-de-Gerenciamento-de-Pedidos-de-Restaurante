@@ -61,18 +61,18 @@ int busca(Pedido* p, char* prato){
 }
 
 //busca e remove a 1 ocorrencia de um prato
-void remover(Pedido* p, char* prato) {
+int remover(Pedido* p, char* prato) {
    
-    if (pedido_vazio(p)) return;
+    if (pedido_vazio(p)) return -1;
 
     int prato_na_lista = busca(p,prato);
-    if(prato_na_lista == -1) return;
+    if(prato_na_lista == -1) return -1;
 
     if(prato_na_lista == 0){ //trata o caso pro primeiro da lista
         No2* temp = p->frente;
         p->frente = p->frente->prox;
         free(temp);
-        return;
+        return 0;
         }
     
         //trata o caso para posicao intermediaria ou final
@@ -85,6 +85,7 @@ void remover(Pedido* p, char* prato) {
     No2* temp = atual->prox;
     atual->prox = temp->prox;
     free(temp);
+    return 0;
 }
 
 

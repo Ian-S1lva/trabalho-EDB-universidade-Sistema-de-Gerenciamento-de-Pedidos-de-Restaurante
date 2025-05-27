@@ -4,7 +4,7 @@
 #define TAM_NOME 100
 
 
-typedef struct {
+typedef struct No2 {
     char *prato;
     struct No2* prox;
 } No2;
@@ -22,7 +22,7 @@ void inicializar_pedido(Pedido* p);
 int pedido_vazio(Pedido* p);
 void inserir(Pedido* p, char* prato);
 int busca(Pedido* p, char* prato);
-void remover(Pedido* p, char* prato);
+int remover(Pedido* p, char* prato);
 
 
 void adicionar_prato();
