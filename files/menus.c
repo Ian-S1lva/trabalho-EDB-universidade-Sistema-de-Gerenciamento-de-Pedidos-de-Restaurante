@@ -89,7 +89,7 @@ void seleciona_opcao(int* TELA,char c){
             }
             break;
         case 1:
-            if(c == '1'){
+            if(c == '1'){                
                 adicionar_prato();
             }
             else if(c == '2'){

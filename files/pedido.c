@@ -50,7 +50,7 @@ int busca(Pedido* p, char* prato){
     No2* atual = pedido_salao.frente;
 
     while (atual != NULL) { //
-        if(atual->prato == prato){//essa construcao compila?
+        if(*(atual->prato) == *prato){//essa construcao compila?
             return i;
         }
         atual = atual->prox;
@@ -97,13 +97,18 @@ int remover(Pedido* p, char* prato) {
 void adicionar_prato(){
    
     char nome_prato[50];
-    printf("\nnome do prato: ");
-    scanf("%s",nome_prato);
+    int ch;
+    while ((ch = getchar()) != '\n' && ch != EOF);
+    printf("nome do prato: ");
+    
+    fgets(nome_prato, sizeof(nome_prato), stdin);
+    nome_prato[strcspn(nome_prato, "\n")] = '\0';
 
     int i;
     for(i=0;i<15;i++){
         if(strcmp(nome_prato,CARDAPIO[i]) == 0){
             inserir(&pedido_salao,CARDAPIO[i]);
+            printf("\npedido adicionado.\n");
             return;
         }
     }
@@ -114,36 +119,38 @@ void adicionar_prato(){
 void remover_prato(){
 
     char nome_prato[50];
+    int ch;
+    while ((ch = getchar()) != '\n' && ch != EOF);
     printf("\nnome do prato: ");
-    scanf("%s",nome_prato);
+    
+    fgets(nome_prato, sizeof(nome_prato), stdin);
+    nome_prato[strcspn(nome_prato, "\n")] = '\0';
     if(remover(&pedido_salao,nome_prato) == -1){
         printf("\nnão foi possível remover o prato\n");
         return;
     }
-    printf("\n 01 %s removido", nome_prato);
+    printf("\n 01 %s removido\n", nome_prato);
 }
 
 void exibir_pedido(){
        if (pedido_vazio(&pedido_salao)) {
-        printf("Nenhum prato adicionado ainda.\n");
+        printf("\nNenhum prato adicionado ainda.\n");
         return;
     }
 
-    printf("Pedido pendente:\n");
+    printf("\nPedido pendente:\n");
     No2* atual = pedido_salao.frente;
     while (atual != NULL) {
         printf(" - %s\n", atual->prato);
         atual = atual->prox;
      
     }
+    printf("\n");
 } 
 
 void finalizar_pedido(){ //uso de funcoes da lista_de_pedidos
     //em construcao
-    enfileirar(&fila_cozinha,pedido_salao);
-    
-} 
-
-int main(){
-    return 0;
+    printf("\npedido finalizado.\n");
+    enviar(&pedido_salao);
+    inicializar_pedido(&pedido_salao);
 }
